@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2px 0;
+        }
+        h1 {
+            margin: 20px 0;
+            text-align: center;
+        }
+        form {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./static/im.svg" alt="Italian Trulli" style="max-width: 100%; height: auto;">
+    </header>      
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+        <label for="file">Upload Excel file:</label>
+        <input type="file" name="file" accept=".xlsx" multiple required>
+
+        <!-- New input fields for Description, Ref_no, and Credit -->
+        <!-- <label for="description">Description:</label>
+        <input type="number" name="description" min="1" max="10" required>
+
+        <label for="ref_no">Ref_no:</label>
+        <input type="number" name="ref_no" min="1" max="10" required>
+
+        <label for="credit">Credit:</label>
+        <input type="number" name="credit" min="1" max="10" required> -->
+
+        <input type="submit" value="Upload and Predict">
+    </form>   
+    <a href="/">Go back</a>
+</body>
+</html>

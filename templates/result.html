@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        p {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            text-align: center;
+            margin-top: 10px;
+        }
+        /* Style for the download link */
+        .download-link {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .download-icon {
+            margin-right: 10px;
+        }
+    </style>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Prediction Result</h1>
+        <!-- Download Link with Icon -->
+        <a href="/download" class="download-link" download="filtered_data.xlsx">
+            <i class="fas fa-download download-icon"></i> Download Dividend Statement
+        </a>
+    </header>
+    <div class="container">
+        <h2>All Predictions:</h2>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Ref_No</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in predicted_1.iterrows() %}
+                <div style="background-color: #f2f2f2; border-radius: 5px; margin-bottom: 5px;">
+                    <tr>
+                        <td style="font-weight: bold; color: black;">{{ row['Description'] }}</td>
+                        <td>{{ row['Ref_No'] }}</td>
+                        <td style="font-weight: bold; color: green;">{{ row['Predictions'] }}</td>
+                    </tr>
+                </div>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h2>Total Credit Payment for Predicted as 1:</h2>
+        <p id="totalCreditPayment">{{ total_credit_payment }}</p>
+    </div>
+</body>
+</html>
+
+               
+         
